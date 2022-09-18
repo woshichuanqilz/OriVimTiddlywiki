@@ -1,0 +1,1 @@
+/home/lizhe/OriNote/wikiScripts/OriFzf.py

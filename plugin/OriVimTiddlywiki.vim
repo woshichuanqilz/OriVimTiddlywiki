@@ -1,3 +1,4 @@
+" ============== Open Tid Under Cursor ================="
 function! OpenTid()
 py << EOF
 import vim
@@ -23,10 +24,25 @@ else:
 EOF
 endfunction
 
+" ============== Open Tid Under Cursor ================="
+function! Fzf()
+py << EOF
+import vim
+import re
+import os
+
+vim.command("Files")
+
+EOF
+endfunction
+
+
 command! -nargs=0 OpenTid call OpenTid()
+
 
 " ================= Example Code =================
 "
 " for line in vim.current.buffer:
 "     print(line)
 " vim.command("normal! yyppp") 
+" print(vim.current.buffer.name)
