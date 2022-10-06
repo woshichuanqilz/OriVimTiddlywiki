@@ -50,3 +50,9 @@ command! -nargs=0 OpenTid call OpenTid()
 "     print(line)
 " vim.command("normal! yyppp") 
 " print(vim.current.buffer.name)
+" function! Test()
+" py << EOF
+" vim.command("normal! jjj")
+" EOF
+" endfunction
+
