@@ -30,12 +30,16 @@ py << EOF
 import vim
 import re
 import os
-
 vim.command("Files")
-
 EOF
 endfunction
 
+function! Test()
+py << EOF
+import twUtils
+
+EOF
+endfunction
 
 command! -nargs=0 OpenTid call OpenTid()
 
