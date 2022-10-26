@@ -56,3 +56,5 @@ command! -nargs=0 OpenTid call OpenTid()
 " EOF
 " endfunction
 
+
+iabbrev abt about
