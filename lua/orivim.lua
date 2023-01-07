@@ -5,6 +5,7 @@ local lvim = require('lvim').lvim
 
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
+    require('telescope.builtin').planets{}
     -- { ":lua require('telescopefind_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
