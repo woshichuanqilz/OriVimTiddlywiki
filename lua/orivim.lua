@@ -4,8 +4,8 @@ local default_opts = { noremap = true, silent = true }
 local lvim = require('lvim').lvim
 
 function M.search_note()
-    require('telescope.builtin').find_files { shorten_path = true, cwd = "/home/lizhe/OriNote/OriWiki/tiddlers/" }
-    -- lvim.builtin.which_key.mappings["n"] = { ":lua require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
+    require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
+    -- { ":lua require('telescopefind_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
 function M.keymap_setup()
