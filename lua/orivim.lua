@@ -7,6 +7,10 @@ function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = "/home/lizhe/OriNote/OriWiki/tiddlers/" }
 end
 
+function M.keymap_setup()
+    print("keymap setup")
+end
+
 function M.create_note(note_name)
   -- accept input
   print('note: ' .. note_name)
