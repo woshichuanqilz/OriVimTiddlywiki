@@ -19,8 +19,9 @@ function M.create_note(note_name)
 end
 
 function M.setup()
-    -- vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
-    -- keymap('n', 'x', 'C', default_opts)
+  -- vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
+  -- keymap('n', 'x', 'C', default_opts)
+  M.keymap_setup()
 end
 
 
