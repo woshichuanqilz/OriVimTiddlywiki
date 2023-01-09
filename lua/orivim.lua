@@ -13,6 +13,7 @@ function M.keymap_setup()
 end
 
 function M.get_current_word()
+  vim.cmd('set iskeyword+=-')
   local current_word = vim.call('expand','<cWORD>')
   print(current_word)
 end
