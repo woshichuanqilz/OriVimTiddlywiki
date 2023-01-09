@@ -2,6 +2,7 @@ local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
+M.note_path = '/home/lizhe/OriNote/notes'
 
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
@@ -12,19 +13,24 @@ function M.keymap_setup()
     print("keymap setup")
 end
 
+function M.get_current_char()
+  return vim.cmd("echo getline('.')[col('.')-1]")
+end
+
 -- [[test.md]]
 function M.get_current_word()
   -- file name contains `.`
   vim.cmd('set iskeyword+=.')
-  local current_char = vim.cmd("echo getline('.')[col('.')-1]")
+  local current_char = M.get_current_char()
   -- if on [
   if current_char == '[' then
-      vim.cmd('normal mzw')
-  elseif current_char == ']' then
-      vim.cmd('normal mzw')
-
-  end
+    vim.cmd('normal mzw')
   -- if on ]
+  elseif current_char == ']' then
+    vim.cmd('normal mzw')
+    current_char = M.get_current_char()
+    vim.cmd('normal `z')
+  end
 
   local current_word = vim.call('expand','<cword>')
   print(current_char)
