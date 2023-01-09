@@ -12,10 +12,12 @@ function M.keymap_setup()
     print("keymap setup")
 end
 
+-- [[test.md]]
 function M.get_current_word()
-  vim.cmd('set iskeyword+=-')
-  local current_word = vim.call('expand','<cWORD>')
+  vim.cmd('set iskeyword-=.')
+  local current_word = vim.call('expand','<cword>')
   print(current_word)
+  vim.cmd('set iskeyword+=.')
 end
 
 
