@@ -14,10 +14,12 @@ end
 
 -- [[test.md]]
 function M.get_current_word()
-  vim.cmd('set iskeyword-=.')
+  -- file name contains `.`
+  vim.cmd('set iskeyword+=.')
+
   local current_word = vim.call('expand','<cword>')
   print(current_word)
-  vim.cmd('set iskeyword+=.')
+  vim.cmd('set iskeyword-=.')
 end
 
 
