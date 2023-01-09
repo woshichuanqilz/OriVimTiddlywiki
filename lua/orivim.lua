@@ -16,6 +16,8 @@ end
 function M.get_current_word()
   -- file name contains `.`
   vim.cmd('set iskeyword+=.')
+  -- if on [
+  -- if on ]
 
   local current_word = vim.call('expand','<cword>')
   print(current_word)
