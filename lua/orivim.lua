@@ -2,7 +2,7 @@ local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
-M.note_path = '/home/lizhe/OriNote/notes'
+local note_path = '/home/lizhe/OriNote/notes'
 
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
@@ -39,7 +39,7 @@ end
 
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  -- local full_path = note_path .. 
+  local full_path = note_path .. 
 end
 
 function M.create_note(note_name)
