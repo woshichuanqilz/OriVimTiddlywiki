@@ -37,12 +37,14 @@ function M.get_current_word()
   return current_word
 end
 
+-- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
   local full_path = M.note_path .. current_word .. '.md'
-  print(full_path)
+  -- print(full_path)
   vim.cmd('e ' .. full_path)
 end
+
 
 function M.create_note(note_name)
   -- accept input
