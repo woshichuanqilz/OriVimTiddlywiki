@@ -17,10 +17,11 @@ function M.get_current_word()
   -- file name contains `.`
   vim.cmd('set iskeyword+=.')
   -- if on [
+  local current_char = vim.cmd("getline('.')[col('.')-1]")
   -- if on ]
 
   local current_word = vim.call('expand','<cword>')
-  print(current_word)
+  print(current_char)
   vim.cmd('set iskeyword-=.')
 end
 
