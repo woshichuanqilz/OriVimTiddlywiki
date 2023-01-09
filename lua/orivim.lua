@@ -19,8 +19,9 @@ function M.get_current_word()
   local current_char = vim.cmd("echo getline('.')[col('.')-1]")
   -- if on [
   if current_char == '[' then
-      vim.cmd('b')
+      vim.cmd('normal mzw')
   elseif current_char == ']' then
+      vim.cmd('normal mzw')
 
   end
   -- if on ]
