@@ -38,7 +38,8 @@ function M.get_current_word()
 end
 
 function M.open_note_under_cursor()
-    
+  local current_word = M.get_current_word()
+  -- local full_path = note_path .. 
 end
 
 function M.create_note(note_name)
