@@ -13,6 +13,12 @@ function M.keymap_setup()
     lvim.builtin.which_key.mappings["n"] = { ":lua require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
+function M.get_current_word()
+  local current_word = vim.api.call('expand','<cword>')
+  print(current_word)
+end
+
+
 function M.create_note(note_name)
   -- accept input
   print('note: ' .. note_name)
