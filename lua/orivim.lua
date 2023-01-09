@@ -1,7 +1,7 @@
 local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
-local lvim = require('lvim').lvim
+-- local lvim = require('lvim').lvim
 
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
@@ -10,11 +10,10 @@ end
 
 function M.keymap_setup()
     print("keymap setup")
-    lvim.builtin.which_key.mappings["n"] = { ":lua require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
 function M.get_current_word()
-  local current_word = vim.api.call('expand','<cword>')
+  local current_word = vim.call('expand','<cword>')
   print(current_word)
 end
 
