@@ -64,4 +64,12 @@ function M.setup()
 end
 
 
+vim.api.nvim_create_user_command(
+  'OpenNoteUnderCursor',
+  function()
+    M.open_note_under_cursor()
+  end,
+  { desc = 'Open the main Mind tree', }
+)
+
 return M
