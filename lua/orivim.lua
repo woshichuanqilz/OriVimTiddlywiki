@@ -1,6 +1,6 @@
+require('orivim.mappings')
+
 local M = {}
-local keymap = vim.keymap.set
-local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 
@@ -9,11 +9,6 @@ function M.search_note()
     -- { ":lua require('telescopefind_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
-function M.keymap_setup()
-  vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
-  keymap('n', 'x', 'C', default_opts)
-  print("keymap setup")
-end
 
 function M.get_current_char()
   return vim.cmd("echo getline('.')[col('.')-1]")
