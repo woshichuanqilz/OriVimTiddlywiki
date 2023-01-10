@@ -21,6 +21,7 @@ end
 --
 -- Notice
 -- 1. location, use bookmark set initial position
+-- 2. check if in the square brackets
 function M.get_current_word()
   -- file name contains `.`
   vim.cmd('set iskeyword+=.')
@@ -39,7 +40,7 @@ function M.get_current_word()
   vim.cmd('normal F[lvt]y')
   -- get register value
   local current_word = vim.fn.getreg('"')
-  print('current' .. current_word)
+  -- print('current' .. current_word)
 
   vim.cmd('normal `z')
   -- local current_word = vim.call('expand','<cword>')
