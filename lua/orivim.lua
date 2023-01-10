@@ -31,7 +31,7 @@ function M.get_current_word()
   end
 
   vim.cmd('normal F[lvt]y')
-  local current_word = vim.cmd('echo @"')
+  local current_word = vim.fn.getreg('"')
   print('current' .. current_word)
 
   vim.cmd('normal `z')
