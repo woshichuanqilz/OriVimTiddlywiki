@@ -59,17 +59,22 @@ function M.create_note(note_name)
   print('note: ' .. note_name)
 end
 
-function M.setup()
-  keymap.keymap_setup()
+function M.set_autoCommand()
+  vim.api.nvim_create_user_command(
+    'OpenNoteUnderCursor',
+    function()
+      M.open_note_under_cursor()
+    end,
+    { desc = 'Open note under cursor.', }
+  )
 end
 
 
-vim.api.nvim_create_user_command(
-  'OpenNoteUnderCursor',
-  function()
-    M.open_note_under_cursor()
-  end,
-  { desc = 'Open note under cursor.', }
-)
+function M.setup()
+  keymap.keymap_setup()
+  M.set_autoCommand()
+end
+
+
 
 return M
