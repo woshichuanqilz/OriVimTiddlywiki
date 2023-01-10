@@ -20,7 +20,7 @@ end
 -- [[🤖Copilot.md]]
 function M.get_current_word()
   -- file name contains `.`
-  vim.cmd('set iskeyword+=.,🤖')
+  vim.cmd('set iskeyword+=.')
   local current_char = M.get_current_char()
   -- if on [
   if current_char == '[' then
@@ -28,7 +28,6 @@ function M.get_current_word()
   -- if on ]
   elseif current_char == ']' then
     vim.cmd('normal mzw')
-    current_char = M.get_current_char()
   end
 
   vim.cmd('normal `z')
