@@ -67,15 +67,23 @@ function M.set_autoCommand()
     end,
     { desc = 'Open note under cursor.', }
   )
+
+  vim.api.nvim_create_user_command(
+    'df',
+    function()
+      vim.cmd('!rm %')
+    end,
+    { desc = 'Open note under cursor.', }
+  )
 end
 
 
 function M.setup()
-  M.set_autoCommand()
   vim.api.nvim_create_autocmd("BufEnter", {
     pattern = { "*.md" },
     callback = function ()
       keymap.keymap_setup()
+      M.set_autoCommand()
     end,
   })
 end
