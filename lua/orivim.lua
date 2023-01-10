@@ -30,8 +30,12 @@ function M.get_current_word()
     vim.cmd('normal mzw')
   end
 
+  vim.cmd('?[lvt]y')
+  local current_word = vim.cmd('echo @"')
+  print('current' .. current_word)
+
   vim.cmd('normal `z')
-  local current_word = vim.call('expand','<cword>')
+  -- local current_word = vim.call('expand','<cword>')
   vim.cmd('set iskeyword-=.')
   return current_word
 end
