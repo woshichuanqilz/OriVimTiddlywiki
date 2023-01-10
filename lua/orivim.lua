@@ -17,10 +17,10 @@ function M.get_current_char()
   return vim.cmd("echo getline('.')[col('.')-1]")
 end
 
--- [[test.md]]
+-- [[🤖Copilot.md]]
 function M.get_current_word()
   -- file name contains `.`
-  vim.cmd('set iskeyword+=.')
+  vim.cmd('set iskeyword+=.,🤖')
   local current_char = M.get_current_char()
   -- if on [
   if current_char == '[' then
@@ -32,7 +32,7 @@ function M.get_current_word()
   end
 
   vim.cmd('normal `z')
-  -- local current_word = vim.call('expand','<cword>')
+  local current_word = vim.call('expand','<cword>')
   vim.cmd('set iskeyword-=.')
   return current_word
 end
