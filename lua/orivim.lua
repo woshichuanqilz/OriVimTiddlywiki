@@ -29,10 +29,10 @@ function M.get_current_word()
   elseif current_char == ']' then
     vim.cmd('normal mzw')
     current_char = M.get_current_char()
-    vim.cmd('normal `z')
   end
 
-  local current_word = vim.call('expand','<cword>')
+  vim.cmd('normal `z')
+  -- local current_word = vim.call('expand','<cword>')
   vim.cmd('set iskeyword-=.')
   return current_word
 end
