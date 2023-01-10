@@ -10,7 +10,9 @@ function M.search_note()
 end
 
 function M.keymap_setup()
-    print("keymap setup")
+  vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
+  keymap('n', 'x', 'C', default_opts)
+  print("keymap setup")
 end
 
 function M.get_current_char()
@@ -63,8 +65,6 @@ function M.create_note(note_name)
 end
 
 function M.setup()
-  -- vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
-  -- keymap('n', 'x', 'C', default_opts)
   M.keymap_setup()
 end
 
