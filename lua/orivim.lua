@@ -1,4 +1,4 @@
-require('orivim.mappings')
+keymap = require('orivim.mappings')
 
 local M = {}
 -- local lvim = require('lvim').lvim
@@ -60,7 +60,7 @@ function M.create_note(note_name)
 end
 
 function M.setup()
-  M.keymap_setup()
+  keymap.keymap_setup()
 end
 
 
