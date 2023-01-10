@@ -71,8 +71,11 @@ end
 
 
 function M.setup()
-  keymap.keymap_setup()
   M.set_autoCommand()
+  vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = { "*.md" },
+      command = keymap.keymap_setup(),
+  })
 end
 
 
