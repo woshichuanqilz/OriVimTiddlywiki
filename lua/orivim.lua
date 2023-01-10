@@ -69,7 +69,7 @@ vim.api.nvim_create_user_command(
   function()
     M.open_note_under_cursor()
   end,
-  { desc = 'Open the main Mind tree', }
+  { desc = 'Open note under cursor.', }
 )
 
 return M
