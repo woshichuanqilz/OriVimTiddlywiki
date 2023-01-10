@@ -17,7 +17,10 @@ function M.get_current_char()
   return vim.cmd("echo getline('.')[col('.')-1]")
 end
 
--- [[🤖Copilot.md]]
+-- test case: [[🤖Copilot.md]]
+--
+-- Notice
+-- 1. location, use bookmark set initial position
 function M.get_current_word()
   -- file name contains `.`
   vim.cmd('set iskeyword+=.')
@@ -28,9 +31,13 @@ function M.get_current_word()
   -- if on ]
   elseif current_char == ']' then
     vim.cmd('normal mzw')
+  else
+    vim.cmd('normal mz')
   end
 
+  -- copy word in the square brackets
   vim.cmd('normal F[lvt]y')
+  -- get register value
   local current_word = vim.fn.getreg('"')
   print('current' .. current_word)
 
