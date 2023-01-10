@@ -68,13 +68,14 @@ function M.set_autoCommand()
     { desc = 'Open note under cursor.', }
   )
 
-  vim.api.nvim_create_user_command(
-    'df',
-    function()
-      vim.cmd('!rm %')
-    end,
-    { desc = 'Open note under cursor.', }
-  )
+  -- vim.api.nvim_create_user_command(
+  --   'df',
+  --   function()
+  --     vim.cmd('!rm %')
+  --   end,
+  --   { desc = 'Open note under cursor.', }
+  -- )
+
 end
 
 
