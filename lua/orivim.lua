@@ -30,7 +30,7 @@ function M.get_current_word()
     vim.cmd('normal mzw')
   end
 
-  vim.cmd('?[<CR>lvt]y')
+  vim.cmd('normal F[lvt]y')
   local current_word = vim.cmd('echo @"')
   print('current' .. current_word)
 
