@@ -4,6 +4,5 @@ local default_opts = { noremap = true, silent = true }
 
 function keymap_setup()
   vim.api.nvim_set_keymap('n', 'x', 'C', {noremap = true})
-  keymap('n', 'x', 'C', default_opts)
-  print("keymap setup")
+  keymap({'n', 'v'}, 'gd', '<cmd>lua require', default_opts)
 end
