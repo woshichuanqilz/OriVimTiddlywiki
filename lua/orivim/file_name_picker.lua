@@ -6,6 +6,7 @@ local action_state = require "telescope.actions.state"
 
 -- our picker function: colors, 
 -- color is function
+-- colors(require("telescope.themes").get_dropdown{})
 local colors = function(opts)
   opts = opts or {}
   pickers.new(opts, {
