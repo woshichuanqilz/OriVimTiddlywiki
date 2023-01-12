@@ -5,7 +5,7 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local make_entry = require "telescope.make_entry"
 local M = {}
-local cursor_theme = require('telescope.themes').get_cursor{}
+local cursor_theme = require('telescope.themes').get_cursor({})
 
 -- our picker function: colors, 
 -- color is function
@@ -187,4 +187,5 @@ end
 -- return M
 -- M.colors()
 --
-M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori'})
+-- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', theme='cursor'})
+M.colors(require("telescope.themes").get_cursor({}))
