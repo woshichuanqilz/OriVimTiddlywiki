@@ -181,7 +181,7 @@ M.find_files = function(opts)
           -- print(vim.inspect(selection))
           vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
           -- vim.cmd('?[')
-          vim.cmd('normal bbb')
+          -- vim.cmd('normal bbb')
         end)
       return true
     end,
@@ -190,7 +190,6 @@ M.find_files = function(opts)
 end
 -- return M
 -- M.colors()
-
 
 -- print(vim.inspect(require("telescope.themes").get_cursor({})))
 -- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', require("telescope.themes").get_cursor({})})
