@@ -1,4 +1,4 @@
-keymap = require('orivim.mappings')
+local keymap = require('orivim.mappings')
 
 local M = {}
 -- local lvim = require('lvim').lvim
