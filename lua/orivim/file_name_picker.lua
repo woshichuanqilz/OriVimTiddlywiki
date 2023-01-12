@@ -177,7 +177,7 @@ M.find_files = function(opts)
       prompt_title = "Find Files",
       finder = finders.new_oneshot_job(find_command, opts),
       -- previewer = conf.file_previewer(opts),
-      previewer = {};
+      previewer = false,
       sorter = conf.file_sorter(opts),
     })
     :find()
@@ -186,4 +186,4 @@ end
 -- return M
 -- M.colors()
 --
-M.find_files({})
+M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori'})
