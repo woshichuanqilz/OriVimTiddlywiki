@@ -1,10 +1,11 @@
-local M = {}
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local actions = require "telescope.actions"
 local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
+
+local M = {}
 
 -- our picker function: colors, 
 -- M.colors = function(opts)
@@ -181,9 +182,10 @@ M.insert_internal_link = function(opts)
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           -- print(vim.inspect(selection))
+          vim.cmd('mz')
           vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
           -- vim.cmd('?[')
-          -- vim.cmd('normal bbb')
+          vim.cmd('`z')
         end)
       return true
     end,
