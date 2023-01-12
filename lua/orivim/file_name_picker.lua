@@ -178,14 +178,15 @@ M.find_files = function(opts)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
-          print(vim.inspect(selection))
-          -- vim.api.nvim_put({ selection[1] }, "", false, true)
+          -- print(vim.inspect(selection))
+          vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
         end)
       return true
     end,
     })
     :find()
 end
+
 
 -- return M
 -- M.colors()
