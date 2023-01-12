@@ -176,7 +176,8 @@ M.find_files = function(opts)
     .new(opts, {
       prompt_title = "Find Files",
       finder = finders.new_oneshot_job(find_command, opts),
-      previewer = conf.file_previewer(opts),
+      -- previewer = conf.file_previewer(opts),
+      previewer = {};
       sorter = conf.file_sorter(opts),
     })
     :find()
