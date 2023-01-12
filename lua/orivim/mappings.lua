@@ -10,7 +10,7 @@ function M.keymap_setup()
   -- not work
   -- keymap({'n', 'v'}, '<leader>t', '<cmd>execute "normal \\<Plug>Markdown_OpenUrlUnderCursor"<CR>', default_opts)
   -- vim.cmd('nnoremap <leader>t :execute "normal \\<Plug>Markdown_OpenUrlUnderCursor"<CR>')
-  vim.cmd('nnoremap <leader>t :execute "normal \\<Plug>Markdown_OpenUrlUnderCursor"')
+  vim.cmd('nnoremap <leader>t :only<CR>:Toc<CR>')
 end
 
 return M
