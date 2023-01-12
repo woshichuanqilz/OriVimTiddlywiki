@@ -184,7 +184,7 @@ M.insert_internal_link = function(opts)
           -- print(vim.inspect(selection))
           vim.cmd('mz')
           vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
-          -- vim.cmd('?[')
+          -- vim.cmd('normal bbb')
           vim.cmd('`z')
         end)
       return true

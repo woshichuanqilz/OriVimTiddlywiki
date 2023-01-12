@@ -1,4 +1,3 @@
-local file_name_picker = require('orivim.file_name_picker')
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 
