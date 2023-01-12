@@ -3,6 +3,7 @@ local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local actions = require "telescope.actions"
 local conf = require("telescope.config").values
+local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
 
 -- our picker function: colors, 
@@ -173,13 +174,13 @@ M.find_files = function(opts)
       -- previewer = conf.file_previewer(opts),
       previewer = false,
       sorter = conf.file_sorter(opts),
-    attach_mappings = function(prompt_bufnr, map)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        -- print(vim.inspect(selection))
-        vim.api.nvim_put({ selection[1] }, "", false, true)
-      end)
+      attach_mappings = function(prompt_bufnr, map)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          print(vim.inspect(selection))
+          -- vim.api.nvim_put({ selection[1] }, "", false, true)
+        end)
       return true
     end,
     })
