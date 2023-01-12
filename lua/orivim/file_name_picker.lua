@@ -46,6 +46,8 @@ local make_entry = require "telescope.make_entry"
 
 
 M.find_files = function(opts)
+  opts = require("telescope.themes").get_cursor({})
+  opts['cwd'] = '/home/lizhe/OriNote/notes/Ori'
   local find_command = (function()
     if opts.find_command then
       if type(opts.find_command) == "function" then
@@ -188,11 +190,5 @@ M.find_files = function(opts)
     })
     :find()
 end
--- return M
--- M.colors()
 
-local opt = require("telescope.themes").get_cursor({})
-opt['cwd'] = '/home/lizhe/OriNote/notes/Ori'
-M.find_files(opt)
-
-[[VimComment.md]]
+return M
