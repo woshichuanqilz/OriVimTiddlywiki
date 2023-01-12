@@ -44,7 +44,7 @@ local colors = function(opts)
 end
 
 -- to execute the function
-colors()
+-- colors()
 
 
 
