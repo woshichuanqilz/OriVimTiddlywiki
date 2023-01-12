@@ -186,6 +186,7 @@ end
 
 -- return M
 -- M.colors()
---
--- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', theme='cursor'})
-M.colors(require("telescope.themes").get_cursor({}))
+
+print(vim.inspect(require("telescope.themes").get_cursor({})))
+-- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', require("telescope.themes").get_cursor({})})
+-- M.colors(require("telescope.themes").get_cursor({}))
