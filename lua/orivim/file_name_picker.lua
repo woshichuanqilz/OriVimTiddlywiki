@@ -45,7 +45,7 @@ local make_entry = require "telescope.make_entry"
 
 
 
-M.find_files = function(opts)
+M.insert_internal_link = function(opts)
   opts = require("telescope.themes").get_cursor({})
   opts['cwd'] = '/home/lizhe/OriNote/notes/Ori'
   local find_command = (function()
