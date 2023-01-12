@@ -180,6 +180,7 @@ M.find_files = function(opts)
           local selection = action_state.get_selected_entry()
           -- print(vim.inspect(selection))
           vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
+          vim.cmd('?[l')
         end)
       return true
     end,
@@ -187,7 +188,7 @@ M.find_files = function(opts)
     :find()
 end
 
-
+[[VimComment.md]]
 -- return M
 -- M.colors()
 
