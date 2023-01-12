@@ -182,10 +182,8 @@ M.insert_internal_link = function(opts)
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           -- print(vim.inspect(selection))
-          vim.cmd('mz')
           vim.api.nvim_put({ "[[" .. selection[1] .. "]]" }, "", false, true)
-          -- vim.cmd('normal bbb')
-          vim.cmd('`z')
+          vim.cmd('normal F[ll')
         end)
       return true
     end,
