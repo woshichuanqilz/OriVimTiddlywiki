@@ -8,8 +8,6 @@ local M = {}
 local cursor_theme = require('telescope.themes').get_cursor({})
 
 -- our picker function: colors, 
--- color is function
--- colors(require("telescope.themes").get_dropdown{})
 M.colors = function(opts)
   opts = opts or {}
   pickers.new(opts, {
@@ -187,6 +185,9 @@ end
 -- return M
 -- M.colors()
 
-print(vim.inspect(require("telescope.themes").get_cursor({})))
+-- print(vim.inspect(require("telescope.themes").get_cursor({})))
 -- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', require("telescope.themes").get_cursor({})})
 -- M.colors(require("telescope.themes").get_cursor({}))
+local opt = require("telescope.themes").get_cursor({})
+opt['cwd'] = '/home/lizhe/OriNote/notes/Ori' 
+M.find_files(opt)
