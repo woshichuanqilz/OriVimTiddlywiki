@@ -191,9 +191,8 @@ end
 -- return M
 -- M.colors()
 
--- print(vim.inspect(require("telescope.themes").get_cursor({})))
--- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', require("telescope.themes").get_cursor({})})
--- M.colors(require("telescope.themes").get_cursor({}))
 local opt = require("telescope.themes").get_cursor({})
 opt['cwd'] = '/home/lizhe/OriNote/notes/Ori'
 M.find_files(opt)
+
+[[VimComment.md]]
