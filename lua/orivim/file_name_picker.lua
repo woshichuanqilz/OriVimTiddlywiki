@@ -5,6 +5,7 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local make_entry = require "telescope.make_entry"
 local M = {}
+local cursor_theme = require('telescope.themes').get_cursor{}
 
 -- our picker function: colors, 
 -- color is function
