@@ -1,51 +1,46 @@
+local M = {}
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
-local conf = require("telescope.config").values
 local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
+local conf = require("telescope.config").values
 local make_entry = require "telescope.make_entry"
-local M = {}
-local cursor_theme = require('telescope.themes').get_cursor({})
 
 -- our picker function: colors, 
-M.colors = function(opts)
-  opts = opts or {}
-  pickers.new(opts, {
-    prompt_title = "New Moon",
-    -- content of the list
-    -- finder = finders.new_table {
-    --   results = { "red", "green", "blue" }
-    -- },
-    finder = finders.new_table {
-      results = {
-        { "red", "#ff0000" },
-        { "green", "#00ff00" },
-        { "blue", "#0000ff" },
-      },
-      entry_maker = function(entry)
-        print(vim.inspect(entry))
-        return {
-          value = entry,
-          display = entry[2],
-          ordinal = entry[2],
-        }
-      end
-    },
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr, map)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        -- print(vim.inspect(selection))
-        vim.api.nvim_put({ selection[1] }, "", false, true)
-      end)
-      return true
-    end,
-  }):find()
-end
-
--- to execute the function
--- colors()
+-- M.colors = function(opts)
+--   opts = opts or {}
+--   pickers.new(opts, {
+--     prompt_title = "New Moon",
+--     -- content of the list
+--     -- finder = finders.new_table {
+--     --   results = { "red", "green", "blue" }
+--     -- },
+--     finder = finders.new_table {
+--       results = {
+--         { "red", "#ff0000" },
+--         { "green", "#00ff00" },
+--         { "blue", "#0000ff" },
+--       },
+--       entry_maker = function(entry)
+--         print(vim.inspect(entry))
+--         return {
+--           value = entry,
+--           display = entry[2],
+--           ordinal = entry[2],
+--         }
+--       end
+--     },
+--     sorter = conf.generic_sorter(opts),
+--     attach_mappings = function(prompt_bufnr, map)
+--       actions.select_default:replace(function()
+--         actions.close(prompt_bufnr)
+--         local selection = action_state.get_selected_entry()
+--         -- print(vim.inspect(selection))
+--         vim.api.nvim_put({ selection[1] }, "", false, true)
+--       end)
+--       return true
+--     end,
+--   }):find()
+-- end
 
 
 
@@ -178,6 +173,15 @@ M.find_files = function(opts)
       -- previewer = conf.file_previewer(opts),
       previewer = false,
       sorter = conf.file_sorter(opts),
+    attach_mappings = function(prompt_bufnr, map)
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local selection = action_state.get_selected_entry()
+        -- print(vim.inspect(selection))
+        vim.api.nvim_put({ selection[1] }, "", false, true)
+      end)
+      return true
+    end,
     })
     :find()
 end
@@ -189,5 +193,5 @@ end
 -- M.find_files({cwd = '/home/lizhe/OriNote/notes/Ori', require("telescope.themes").get_cursor({})})
 -- M.colors(require("telescope.themes").get_cursor({}))
 local opt = require("telescope.themes").get_cursor({})
-opt['cwd'] = '/home/lizhe/OriNote/notes/Ori' 
+opt['cwd'] = '/home/lizhe/OriNote/notes/Ori'
 M.find_files(opt)
