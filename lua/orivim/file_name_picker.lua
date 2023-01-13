@@ -11,7 +11,7 @@ local M = {}
 M.colors = function(opts)
   opts = opts or {}
   pickers.new(opts, {
-    prompt_title = "New Moon",
+    prompt_title = "Ori",
     -- content of the list
     -- finder = finders.new_table {
     --   results = { "red", "green", "blue" }
