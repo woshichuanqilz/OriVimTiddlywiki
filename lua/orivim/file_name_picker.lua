@@ -26,8 +26,8 @@ M.colors = function(opts)
         -- print(vim.inspect(entry))
         return {
           value = entry,
-          display = entry[2],
-          ordinal = entry[2],
+          display = entry[1],
+          ordinal = entry[1],
         }
       end
     },
@@ -191,5 +191,5 @@ M.insert_internal_link = function(opts)
     :find()
 end
 
-M.colors()
+-- M.colors()
 return M
