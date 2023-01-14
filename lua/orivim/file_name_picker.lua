@@ -1,4 +1,5 @@
 local pickers = require "telescope.pickers"
+local utils = require "telescope.utils"
 local finders = require "telescope.finders"
 local actions = require "telescope.actions"
 local conf = require("telescope.config").values
@@ -83,7 +84,7 @@ M.insert_tag = function(opts)
           tagName = selection[1]
         end
         -- print(vim.inspect(selection))
-        vim.api.nvim_put({ '#' .. tagName }, "", false, true)
+        vim.api.nvim_put({ '#' .. tagName .. ' ' }, "", false, true)
       end)
       return true
     end,
