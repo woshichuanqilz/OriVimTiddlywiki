@@ -5,6 +5,8 @@ local actions = require "telescope.actions"
 local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
+local log = require "telescope.log"
+local flatten = vim.tbl_flatten
 
 local M = {}
 M.note_path = '/home/lizhe/OriNote/notes/'
@@ -239,5 +241,5 @@ end
 
 -- M.colors()
 -- M.update_tags()
-M.insert_tag()
+-- M.insert_tag()
 return M
