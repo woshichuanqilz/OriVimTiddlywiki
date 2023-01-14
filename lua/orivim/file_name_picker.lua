@@ -43,7 +43,7 @@ M.colors = function(opts)
 end
 
 M.update_tags = function()
-  os.execute(M.note_path .. 'GrabTags.py')
+  os.execute(M.note_path .. 'GrabTags.py' .. M.note_path .. 'Ori/')
 end
 
 -- our picker function: colors, 
