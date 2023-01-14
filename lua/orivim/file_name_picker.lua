@@ -6,6 +6,7 @@ local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
 
 local M = {}
+M.note_path = '/home/lizhe/OriNote/notes/'
 
 -- our picker function: colors, 
 M.colors = function(opts)
@@ -41,11 +42,15 @@ M.colors = function(opts)
   }):find()
 end
 
+M.update_tags = function()
+  -- code
+  os.execute('')
+end
 
 -- our picker function: colors, 
 M.find_tags = function(opts)
   opts = opts or {}
-  local tag_path = '/home/lizhe/OriNote/notes/tags.txt'
+  local tag_path = M.note_path .. 'tags.txt'
   local file = io.open(tag_path, "r");
   local lines = {}
   if (file == nil) then return end
