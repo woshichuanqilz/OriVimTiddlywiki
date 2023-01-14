@@ -49,6 +49,7 @@ end
 M.insert_internal_link = function(opts)
   opts = require("telescope.themes").get_cursor({})
   opts['cwd'] = '/home/lizhe/OriNote/notes/Ori'
+  print(vim.inspect(opts))
   local find_command = (function()
     if opts.find_command then
       if type(opts.find_command) == "function" then
