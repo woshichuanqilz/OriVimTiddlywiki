@@ -76,9 +76,14 @@ M.insert_tag = function(opts)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
-        print(action_state.get_current_line())
-        print(vim.inspect(selection))
-        vim.api.nvim_put({ selection[1] }, "", false, true)
+        local tagName = ''
+        if (selection == nil) then
+          tagName = action_state.get_current_line()
+        else
+          tagName = selection[1]
+        end
+        -- print(vim.inspect(selection))
+        vim.api.nvim_put({ '#' .. tagName }, "", false, true)
       end)
       return true
     end,
