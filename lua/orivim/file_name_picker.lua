@@ -49,7 +49,7 @@ M.update_tags = function()
 end
 
 -- our picker function: colors, 
-M.find_tags = function(opts)
+M.insert_tag = function(opts)
   opts = opts or {}
   local tag_path = M.note_path .. 'tags.txt'
   local file = io.open(tag_path, "r");
@@ -232,5 +232,6 @@ M.insert_internal_link = function(opts)
 end
 
 -- M.colors()
-M.update_tags()
+-- M.update_tags()
+M.insert_tag()
 return M
