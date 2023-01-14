@@ -45,7 +45,13 @@ end
 -- our picker function: colors, 
 M.find_tags = function(opts)
   opts = opts or {}
-  opts['cwd'] = '/home/lizhe/OriNote/notes/tags.txt'
+  local tag_path = '/home/lizhe/OriNote/notes/tags.txt'
+  local file = io.open(tag_path, "r");
+  local arr = {}
+  for line in file:lines() do
+    table.insert (arr, line);
+  end
+
   pickers.new(opts, {
     prompt_title = "Ori Tags",
     finder = finders.new_table {
