@@ -43,8 +43,7 @@ M.colors = function(opts)
 end
 
 M.update_tags = function()
-  -- code
-  os.execute('')
+  os.execute(M.note_path .. 'GrabTags.py')
 end
 
 -- our picker function: colors, 
@@ -231,5 +230,5 @@ M.insert_internal_link = function(opts)
 end
 
 -- M.colors()
-M.find_tags()
+M.update_tags()
 return M
