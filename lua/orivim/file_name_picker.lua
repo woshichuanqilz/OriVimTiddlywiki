@@ -47,27 +47,23 @@ M.find_tags = function(opts)
   opts = opts or {}
   local tag_path = '/home/lizhe/OriNote/notes/tags.txt'
   local file = io.open(tag_path, "r");
-  local arr = {}
+  local lines = {}
+  if (file == nil) then return end
   for line in file:lines() do
-    table.insert (arr, line);
+    table.insert (lines, line);
   end
 
   pickers.new(opts, {
     prompt_title = "Ori Tags",
     finder = finders.new_table {
-      results = {
-        { "red", "#ff0000" },
-        { "green", "#00ff00" },
-        { "blue", "#0000ff" },
-      },
-      entry_maker = function(entry)
-        -- print(vim.inspect(entry))
-        return {
-          value = entry,
-          display = entry[1],
-          ordinal = entry[1],
-        }
-      end
+      results = lines
+      -- entry_maker = function(entry)
+      --   return {
+      --     value = entry,
+      --     display = entry[1],
+      --     ordinal = entry[1],
+      --   }
+      -- end
     },
     sorter = conf.generic_sorter(opts),
     attach_mappings = function(prompt_bufnr, map)
@@ -230,4 +226,5 @@ M.insert_internal_link = function(opts)
 end
 
 -- M.colors()
+M.find_tags()
 return M
