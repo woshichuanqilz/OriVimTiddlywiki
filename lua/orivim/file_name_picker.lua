@@ -76,6 +76,7 @@ M.insert_tag = function(opts)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
+        print(action_state.get_current_line())
         print(vim.inspect(selection))
         vim.api.nvim_put({ selection[1] }, "", false, true)
       end)
@@ -83,7 +84,6 @@ M.insert_tag = function(opts)
     end,
   }):find()
 end
-
 
 
 M.insert_internal_link = function(opts)
