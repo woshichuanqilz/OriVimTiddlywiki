@@ -10,12 +10,12 @@ def grabFiles(path):
             ext = os.path.splitext(file)[1]
             if ext != '.md':
                 continue
-            t_path = os.path.join(root, file)
+            t_path = os.path.join(dirs, file)
             # get name from path
             name = os.path.basename(t_path)
             l.append(name + "," + t_path + '\n')
     # write to file
-    with open(os.path.join(path, "note_paths.txt"), "w") as f:
+    with open(os.path.join(path, "..", "note_paths.txt"), "w") as f:
         for item in l:
             f.write(item)
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     import sys
 
     if len(sys.argv) < 2:
-        path = '/home/lizhe/OriNote/notes/'
+        path = '/home/lizhe/OriNote/notes/Ori'
     else:
         path = sys.argv[1]
     grabFiles(path)
