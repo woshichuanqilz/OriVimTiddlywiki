@@ -48,8 +48,7 @@ end
 M.update_tags = function()
   -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
   command = 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  -- print(command)
-  os.execute(command)
+  os.execute('pwd')
 end
 
 -- our picker function: colors, 
