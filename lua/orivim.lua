@@ -126,7 +126,7 @@ function M.setup()
 end
 
 
-M.init_path_map()
-M.open_note_under_cursor()
+-- M.init_path_map()
+-- M.open_note_under_cursor()
 return M
 
