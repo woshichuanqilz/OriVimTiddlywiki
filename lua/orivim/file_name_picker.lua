@@ -239,7 +239,15 @@ M.insert_internal_link = function(opts)
     :find()
 end
 
-M.colors()
+M.colors(
+  {defaults= {
+    mappings = {
+      i = {
+        ['o'] = 'j'
+      }
+    }
+  }}
+)
 -- M.update_tags()
 -- M.insert_tag()
 return M
