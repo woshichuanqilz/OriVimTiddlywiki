@@ -30,7 +30,7 @@ def getMarkdownTags(path):
     tags.sort()
     # write to file
 
-    with open(os.path.join(file_path, '..', 'tags.txt'), 'w') as f:
+    with open(os.path.join(file_path, '..', 'tags.txt'), 'w+') as f:
         for tag in set(tags):
             f.write(tag + '\n')
     return tags
