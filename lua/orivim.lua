@@ -5,6 +5,15 @@ local default_opts = { noremap = true, silent = true }
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.file_path_map = {}
 
+function M.init_path_map()
+  local file = io.open(M.note_path .. '../note_paths.txt', "r");
+  local lines = {}
+  if (file == nil) then return end
+  for line in file:lines() do
+    table.insert (lines, line);
+  end
+end
+
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
     -- { ":lua require('telescopefind_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
