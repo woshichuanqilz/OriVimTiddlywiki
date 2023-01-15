@@ -1,4 +1,6 @@
 local M = {}
+
+local notify = require('notify')
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
@@ -70,8 +72,17 @@ end
 -- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
+  -- print(vim.inspect(current_word))
+  -- print(vim.inspect(M.fMap[current_word]))
   local fp = M.note_path .. M.fMap[current_word]
-  vim.cmd('vs ' .. fp)
+  if fp == nil then
+    vim.notify("link was copied", vim.log.levels.WARN, {
+       title = "Not Exist",
+       icon = "",
+    })
+  else
+    vim.cmd('vs ' .. fp)
+  end
 end
 
 
