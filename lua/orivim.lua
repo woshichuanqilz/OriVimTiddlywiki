@@ -1,8 +1,7 @@
 local M = {}
-
-local notify = require('notify')
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
+local notify = require('notify')
 -- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.fMap = {}
@@ -76,8 +75,8 @@ function M.open_note_under_cursor()
   -- print(vim.inspect(M.fMap[current_word]))
   local fp = M.note_path .. M.fMap[current_word]
   if fp == nil then
-    vim.notify("link was copied", vim.log.levels.WARN, {
-       title = "Not Exist",
+    notify("link was copied", vim.log.levels.WARN, {
+       title = "Mind",
        icon = "",
     })
   else
