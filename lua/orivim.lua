@@ -3,6 +3,7 @@ local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
+M.file_path_map = {}
 
 function M.search_note()
     require('telescope.builtin').find_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }
@@ -53,10 +54,7 @@ end
 -- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  local file_path_map =  '/home/lizhe/.local/share/lunarvim/site/pack/packer/start/orivim/GrabTags.py ' .. M.note_path
   os.execute(command)
-  -- local full_path = M.note_path .. current_word .. '.md'
-  -- vim.cmd('vs ' .. full_path)
 end
 
 
