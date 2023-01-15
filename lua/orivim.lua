@@ -9,9 +9,16 @@ function M.init_path_map()
   local file = io.open(M.note_path .. '../note_paths.txt', "r");
   local lines = {}
   if (file == nil) then return end
+  local index = 0
+  local k = ''
+  local v = ''
   for line in file:lines() do
-    table.insert (lines, {''});
-    for k, v in string.gmatch(s, "(%w+),(%w+)") do
+    if index % 2 == 0 then
+      k = line
+    else
+      v = line
+      table.insert (lines, {''});
+    end
   end
 end
 

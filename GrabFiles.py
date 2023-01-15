@@ -15,7 +15,7 @@ def grabFiles(path):
             t_path = os.path.join(root, file).replace(abs_path, '')
             # get name from path
             name = os.path.basename(t_path)
-            l.append(name + "," + t_path + '\n')
+            l.append(name + "\n" + t_path + '\n')
     # write to file
     with open(os.path.join(path, "..", "note_paths.txt"), "w") as f:
         for item in l:
