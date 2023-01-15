@@ -68,9 +68,10 @@ function M.get_current_word()
 end
 
 -- work done
--- [[VimComment.md]]
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
+  -- print(vim.inspect(current_word))
+  -- print(vim.inspect(M.fMap[current_word]))
   local fp = M.note_path .. M.fMap[current_word]
   vim.cmd('vs ' .. fp)
 end
@@ -125,7 +126,7 @@ function M.setup()
 end
 
 
-
+M.init_path_map()
 M.open_note_under_cursor()
 return M
 
