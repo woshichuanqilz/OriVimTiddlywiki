@@ -1,5 +1,3 @@
-lfs = require('lfs')
-
 local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
@@ -12,7 +10,7 @@ function M.search_note()
 end
 
 M.update_tags = function()
-  command =  '/home/lizhe/.local/share/lunarvim/site/pack/packer/start/orivim/GrabTags.py ' .. M.note_path .. 'Ori/'
+  command =  '/home/lizhe/.local/share/lunarvim/site/pack/packer/start/orivim/GrabTags.py ' .. M.note_path
   os.execute(command)
 end
 
