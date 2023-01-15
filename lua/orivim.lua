@@ -10,7 +10,8 @@ function M.init_path_map()
   local lines = {}
   if (file == nil) then return end
   for line in file:lines() do
-    table.insert (lines, line);
+    table.insert (lines, {''});
+    for k, v in string.gmatch(s, "(%w+),(%w+)") do
   end
 end
 
