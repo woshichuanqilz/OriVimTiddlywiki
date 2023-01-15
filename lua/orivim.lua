@@ -77,7 +77,8 @@ function M.open_note_under_cursor()
   if M.fMap[current_word] == nil then
     notify("Not Exist", vim.log.levels.WARN, {
       title = "Mind",
-      icon = ""
+      icon = "",
+      timeout = 1000
     })
   else
     local fp = M.note_path .. M.fMap[current_word]
