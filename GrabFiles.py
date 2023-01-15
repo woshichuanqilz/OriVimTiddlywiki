@@ -4,6 +4,7 @@ import os
 
 def grabFiles(path):
     l = []
+    abs_path = path
     for root, dirs, files in os.walk(path):
         for file in files:
             # get file extension
@@ -11,7 +12,7 @@ def grabFiles(path):
             if ext != '.md':
                 continue
             # replace string
-            t_path = os.path.join(root, file).replace(root + '/', '')
+            t_path = os.path.join(root, file).replace(abs_path, '')
             # get name from path
             name = os.path.basename(t_path)
             l.append(name + "," + t_path + '\n')
@@ -26,7 +27,7 @@ if __name__ == '__main__':
     import sys
 
     if len(sys.argv) < 2:
-        path = '/home/lizhe/OriNote/notes/Ori'
+        path = '/home/lizhe/OriNote/notes/Ori/'
     else:
         path = sys.argv[1]
     grabFiles(path)
