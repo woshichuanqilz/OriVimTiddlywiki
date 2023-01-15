@@ -240,26 +240,26 @@ M.insert_internal_link = function(opts)
 end
 
 
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        -- To disable a keymap, put [map] = false
-        -- So, to not map "<C-n>", just put
-        ["<c-x>"] = false,
-      },
-  }
-}
+-- require('telescope').setup{
+--   defaults = {
+--     mappings = {
+--       i = {
+--         -- To disable a keymap, put [map] = false
+--         -- So, to not map "<C-n>", just put
+--         ["<c-x>"] = false,
+--       },
+--   }
+-- }
 
-M.colors(
-  {defaults= {
-    mappings = {
-      i = {
-        ['o'] = 'j'
-      }
-    }
-  }}
-)
--- M.update_tags()
--- M.insert_tag()
-return M
+-- M.colors(
+--   {defaults= {
+--     mappings = {
+--       i = {
+--         ['o'] = 'j'
+--       }
+--     }
+--   }}
+-- )
+-- -- M.update_tags()
+-- -- M.insert_tag()
+-- return M
