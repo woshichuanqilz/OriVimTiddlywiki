@@ -12,9 +12,7 @@ function M.search_note()
 end
 
 M.update_tags = function()
-  -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  local root_dir = lfs.currentdir()
-  local command = root_dir .. '/GrabTags.py ' .. M.note_path
+  command =  '/home/lizhe/.local/share/lunarvim/site/pack/packer/start/orivim/GrabTags.pyGrabTags.py ' .. M.note_path .. 'Ori/'
   os.execute(command)
 end
 
