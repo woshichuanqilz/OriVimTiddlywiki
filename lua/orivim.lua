@@ -1,7 +1,8 @@
-local keymap = vim.keymap.set
-local default_opts = { noremap = true, silent = true }
+lfs = require('lfs')
 
 local M = {}
+local keymap = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 
@@ -12,7 +13,8 @@ end
 
 M.update_tags = function()
   -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  command = 'GrabTags.py ' .. M.note_path
+  local root_dir = lfs.currentdir()
+  local command = root_dir .. '/GrabTags.py ' .. M.note_path
   os.execute(command)
 end
 
