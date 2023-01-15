@@ -3,11 +3,10 @@ local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 -- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
-M.file_path_map = {}
+M.fMap = {}
 
 function M.init_path_map()
   local file = io.open(M.note_path .. '../note_paths.txt', "r");
-  local lines = {}
   if (file == nil) then return end
   local index = 0
   local k = ''
@@ -16,9 +15,9 @@ function M.init_path_map()
     if index % 2 == 0 then
       k = line
     else
-      v = line
-      table.insert (lines, {''});
+      M.fMap[k] = line
     end
+    index = index + 1
   end
 end
 
@@ -69,9 +68,11 @@ function M.get_current_word()
 end
 
 -- work done
+-- [[VimComment.md]]
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  os.execute(command)
+  local fp = M.note_path .. M.fMap[current_word]
+  vim.cmd('vs ' .. fp)
 end
 
 
@@ -125,5 +126,6 @@ end
 
 
 
+M.open_note_under_cursor()
 return M
 
