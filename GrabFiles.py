@@ -13,8 +13,8 @@ def grabFiles(path):
                 continue
             # replace string
             t_path = os.path.join(root, file).replace(abs_path, '')
-            # get name from path
-            name = os.path.basename(t_path)
+            # get name from path without extension
+            name = os.path.splitext(file)[0]
             l.append(name + "\n" + t_path + '\n')
     # write to file
     with open(os.path.join(path, "..", "note_paths.txt"), "w") as f:
