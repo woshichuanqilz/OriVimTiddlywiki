@@ -239,7 +239,7 @@ M.insert_internal_link = function(opts)
     :find()
 end
 
--- M.colors()
+M.colors()
 -- M.update_tags()
 -- M.insert_tag()
 return M
