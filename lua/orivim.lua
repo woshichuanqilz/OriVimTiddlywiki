@@ -10,6 +10,12 @@ function M.search_note()
     -- { ":lua require('telescopefind_files { shorten_path = true, cwd = '/home/lizhe/OriNote/notes/' }<CR>", "Run current script", silent = true }
 end
 
+M.update_tags = function()
+  -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
+  command = 'GrabTags.py ' .. M.note_path
+  os.execute(command)
+end
+
 
 function M.get_current_char()
   return vim.cmd("echo getline('.')[col('.')-1]")

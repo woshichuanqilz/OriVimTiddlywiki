@@ -46,12 +46,6 @@ M.colors = function(opts)
   }):find()
 end
 
-M.update_tags = function()
-  -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  -- command = 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  -- os.execute(command)
-  print(lfs.currentdir())
-end
 
 -- our picker function: colors, 
 M.insert_tag = function(opts)
