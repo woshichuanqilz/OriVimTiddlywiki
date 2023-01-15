@@ -50,8 +50,7 @@ end
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
   local full_path = M.note_path .. current_word .. '.md'
-  -- print(full_path)
-  vim.cmd('e ' .. full_path)
+  vim.cmd('vs ' .. full_path)
 end
 
 
