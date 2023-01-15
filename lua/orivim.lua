@@ -6,6 +6,7 @@ local notify = require('notify')
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.fMap = {}
 
+
 function M.init_path_map()
   local file = io.open(M.note_path .. '../note_paths.txt', "r");
   if (file == nil) then return end
@@ -74,7 +75,6 @@ function M.open_note_under_cursor()
   -- print(vim.inspect(current_word))
   -- print(current_word)
   -- print(vim.inspect(M.fMap[current_word]))
-  notify.config.setup({ timeout = 1000 })
   if M.fMap[current_word] == nil then
     notify("Not Exist", vim.log.levels.WARN, {
       title = "Mind",
