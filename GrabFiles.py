@@ -10,9 +10,8 @@ def grabFiles(path):
             ext = os.path.splitext(file)[1]
             if ext != '.md':
                 continue
-            if '教师' in file:
-                continue
-            t_path = os.path.join(root, file)
+            # replace string
+            t_path = os.path.join(root, file).replace(root + '/', '')
             # get name from path
             name = os.path.basename(t_path)
             l.append(name + "," + t_path + '\n')
