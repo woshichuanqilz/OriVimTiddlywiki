@@ -72,17 +72,17 @@ end
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
   -- print(vim.inspect(current_word))
-  print(current_word)
-  print(vim.inspect(M.fMap[current_word]))
-  -- if M.fMap[current_word] == nil then
-  --   notify("link was copied", vim.log.levels.WARN, {
-  --      title = "Mind",
-  --      icon = "",
-  --   })
-  -- else
-  --   local fp = M.note_path .. M.fMap[current_word]
-  --   vim.cmd('vs ' .. fp)
-  -- end
+  -- print(current_word)
+  -- print(vim.inspect(M.fMap[current_word]))
+  if M.fMap[current_word] == nil then
+    notify("Not Exist", vim.log.levels.WARN, {
+      title = "Mind",
+      icon = ""
+    })
+  else
+    local fp = M.note_path .. M.fMap[current_word]
+    vim.cmd('vs ' .. fp)
+  end
 end
 
 
