@@ -1,4 +1,4 @@
-# iterate files recursively
+# -*- coding: utf-8 -*-
 import os
 
 
@@ -10,7 +10,9 @@ def grabFiles(path):
             ext = os.path.splitext(file)[1]
             if ext != '.md':
                 continue
-            t_path = os.path.join(dirs, file)
+            if '教师' in file:
+                continue
+            t_path = os.path.join(root, file)
             # get name from path
             name = os.path.basename(t_path)
             l.append(name + "," + t_path + '\n')
