@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.globals": [
+        "vim",
+        "lvim",
+        "packer_plugins",
+        "reload",
+        "lfs"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.library": [
+        "/usr/share/nvim/runtime",
+        "/home/lizhe/.local/share/lunarvim/lvim",
+        "/home/lizhe/.local/share/lunarvim/site/pack/packer/opt/neodev.nvim/types/stable",
+        "${3rd}/busted/library",
+        "${3rd}/luassert/library",
+        "/home/lizhe/.local/share/lunarvim/site/pack/packer/start/LuaSnip/lua",
+        "/home/lizhe/.local/share/lunarvim/site/pack/packer/start/plenary.nvim/lua",
+        "/home/lizhe/.local/share/lunarvim/site/pack/packer/start/telescope.nvim/lua",
+        "${3rd}/lfs/library"
+    ]
+}

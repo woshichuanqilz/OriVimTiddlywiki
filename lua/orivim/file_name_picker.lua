@@ -7,6 +7,7 @@ local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
 local log = require "telescope.log"
 local flatten = vim.tbl_flatten
+local lfs = require('lfs')
 
 local M = {}
 M.note_path = '/home/lizhe/OriNote/notes/'
@@ -47,8 +48,9 @@ end
 
 M.update_tags = function()
   -- command = M.note_path .. 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  command = 'GrabTags.py ' .. M.note_path .. 'Ori/'
-  os.execute(command)
+  -- command = 'GrabTags.py ' .. M.note_path .. 'Ori/'
+  -- os.execute(command)
+  print(lfs.currentdir())
 end
 
 -- our picker function: colors, 
@@ -260,6 +262,6 @@ end
 --     }
 --   }}
 -- )
-M.update_tags()
+-- M.update_tags()
 -- -- M.insert_tag()
 return M
