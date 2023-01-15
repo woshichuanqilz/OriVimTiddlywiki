@@ -1,5 +1,4 @@
 # iterate files recursively
-
 import os
 
 
@@ -16,7 +15,7 @@ def grabFiles(path):
             name = os.path.basename(t_path)
             l.append(name + "," + t_path + '\n')
     # write to file
-    with open(os.path.join(path, "note_path.txt"), "w") as f:
+    with open(os.path.join(path, "note_paths.txt"), "w") as f:
         for item in l:
             f.write(item)
 

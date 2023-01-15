@@ -53,8 +53,10 @@ end
 -- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  local full_path = M.note_path .. current_word .. '.md'
-  vim.cmd('vs ' .. full_path)
+  local file_path_map =  '/home/lizhe/.local/share/lunarvim/site/pack/packer/start/orivim/GrabTags.py ' .. M.note_path
+  os.execute(command)
+  -- local full_path = M.note_path .. current_word .. '.md'
+  -- vim.cmd('vs ' .. full_path)
 end
 
 
