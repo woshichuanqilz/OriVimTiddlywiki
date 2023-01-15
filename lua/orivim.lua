@@ -125,8 +125,10 @@ function M.setup()
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})
 end
 
+function M.init()
+ M.init_path_map()
+end
 
--- M.init_path_map()
--- M.open_note_under_cursor()
+M.init()
 return M
 
