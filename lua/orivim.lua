@@ -125,6 +125,7 @@ end
 
 
 function M.setup()
+  M.init_path_map()
   vim.api.nvim_create_autocmd("BufEnter", {
     pattern = { "*.md" },
     callback = function ()
@@ -135,10 +136,6 @@ function M.setup()
 
   -- Create User Command
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})
-end
-
-function M.init()
- M.init_path_map()
 end
 
 M.init()
