@@ -7,7 +7,6 @@ local action_state = require("telescope.actions.state")
 local make_entry = require "telescope.make_entry"
 local log = require "telescope.log"
 local flatten = vim.tbl_flatten
-local lfs = require('lfs')
 
 local M = {}
 M.note_path = '/home/lizhe/OriNote/notes/'
