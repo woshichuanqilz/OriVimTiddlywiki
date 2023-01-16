@@ -121,6 +121,7 @@ function M.keymap_setup(note_path)
   keymap({'n', 'v'}, '<A-f>', ":lua require('telescope.builtin').live_grep({cwd='" .. note_path ..  "'})<CR>", default_opts)
   keymap({'n', 'v', 'i'}, '<A-i>', "<cmd>lua require('orivim.file_name_picker').insert_internal_link()<CR>", default_opts)
   keymap({'n'}, 'g`', "{o```<ESC>mz}i```<ESC>`zA", default_opts)
+  keymap({'v'}, 'g`', "{o```<ESC>mz}i```<ESC>`zA", default_opts)
   -- Navigation
   -- It is fucking easy to make a function
   keymap({'n', 'v', 'i'}, ']]', "/^#\\{1,\\} ", default_opts)
