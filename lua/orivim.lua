@@ -1,8 +1,8 @@
+
 local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 local notify = require('notify')
--- local lvim = require('lvim').lvim
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.fMap = {}
 
@@ -126,18 +126,19 @@ end
 
 function M.setup()
   M.init_path_map()
+
+  -- Create User Command
   vim.api.nvim_create_autocmd("BufEnter", {
     pattern = { "*.md" },
     callback = function ()
       M.keymap_setup(M.note_path)
       M.set_autoCommand()
+      -- lvim.builtin.telescope.defaults.mappings.i['#'] = actions.close
+      -- lvim.builtin.telescope.defaults.mappings.i[' '] = actions.close
     end,
   })
-
-  -- Create User Command
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})
 end
 
-M.init()
 return M
 
