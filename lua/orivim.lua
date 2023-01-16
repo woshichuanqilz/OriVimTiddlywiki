@@ -1,5 +1,5 @@
-package.path = '/home/lizhe/.local/share/lunarvim/lvim/lua/lvim/config/init.lua;' .. package.path
-lvim = require("config")
+-- package.path = '/home/lizhe/.local/share/lunarvim/lvim/lua/lvim/config/init.lua;' .. package.path
+-- lvim = require("config")
 
 local M = {}
 local keymap = vim.keymap.set
