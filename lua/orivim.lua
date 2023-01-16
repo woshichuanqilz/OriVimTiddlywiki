@@ -1,3 +1,4 @@
+package.path = './mylib/?.lua;' .. package.path
 
 local M = {}
 local keymap = vim.keymap.set
