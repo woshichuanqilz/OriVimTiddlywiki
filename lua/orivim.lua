@@ -11,7 +11,6 @@ function M.init_path_map()
   if (file == nil) then return end
   local index = 0
   local k = ''
-  local v = ''
   for line in file:lines() do
     if index % 2 == 0 then
       k = line
