@@ -1,12 +1,14 @@
--- package.path = '/home/lizhe/.local/share/lunarvim/lvim/lua/lvim/config/init.lua;' .. package.path
--- lvim = require("config")
-
+local ok, actions = pcall(require, "telescope.actions")
+if not ok then
+  return
+end
 local M = {}
 local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 local notify = require('notify')
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.fMap = {}
+
 
 function M.init_path_map()
   local file = io.open(M.note_path .. '../note_paths.txt', "r");
@@ -140,8 +142,8 @@ function M.setup()
     callback = function ()
       M.keymap_setup(M.note_path)
       M.set_autoCommand()
-      -- lvim.builtin.telescope.defaults.mappings.i['#'] = actions.close
-      -- lvim.builtin.telescope.defaults.mappings.i[' '] = actions.close
+      lvim.builtin.telescope.defaults.mappings.i['#'] = actions.close
+      lvim.builtin.telescope.defaults.mappings.i[' '] = actions.close
     end,
   })
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})

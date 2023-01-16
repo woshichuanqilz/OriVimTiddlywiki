@@ -14,6 +14,7 @@ M.note_path = '/home/lizhe/OriNote/notes/'
 -- our picker function: colors, 
 M.colors = function(opts)
   opts = opts or {}
+  lvim.builtin.telescope.defaults.layout_strategy = "flex"
   pickers.new(opts, {
     prompt_title = "Ori",
     --   results = { "red", "green", "blue" }
