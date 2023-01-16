@@ -126,7 +126,7 @@ function M.keymap_setup(note_path)
   keymap({'n', 'v', 'i'}, '[[', "?^#\\{1,\\} ", default_opts)
 
   -- invoke tag insert win
-  keymap({'i'}, '#', "#<ESC>:lua require('orivim.file_name_picker').insert_tag()<CR>", default_opts)
+  keymap({'i'}, ';#', "#<ESC>:lua require('orivim.file_name_picker').insert_tag()<CR>", default_opts)
 
   vim.cmd('nnoremap <leader>to :only<CR>:Toc<CR>')
   vim.cmd("nnoremap <leader>ta :lua require('orivim.file_name_picker').insert_tag()<CR>")
