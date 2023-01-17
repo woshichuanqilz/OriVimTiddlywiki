@@ -7,10 +7,12 @@ local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 local notify = require('notify')
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
+M.vault_name = 'notes'
 M.fMap = {}
 
 function M.preview_in_obsidian()
-  
+  local file_path = vim.cmd('echo expand("%:p")')
+   file_path:
 end
 
 function M.init_path_map()
