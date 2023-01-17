@@ -1,3 +1,5 @@
+vim.notify = require('notify').notify
+
 local ok, actions = pcall(require, "telescope.actions")
 if not ok then
   return
@@ -25,10 +27,17 @@ function M.preview_in_obsidian()
   relative_path = relative_path:gsub('.md', '')
   -- local cmd = 'xdg-open "obsidian://open?vault=' .. M.vault_name .. "&file=" .. M.urlencode(relative_path) .. '"&'
   local cmd = '"obsidian://open?vault=' .. M.vault_name .. "&file=" .. M.urlencode(relative_path) .. '"'
-  print(cmd)
+  -- print(cmd)
   -- os.execute(cmd)
-  vim.cmd('silent call jobstart(["xdg-open", ' .. cmd .. '])')
-  print(':Note opened.')
+  vim.cmd('call jobstart(["xdg-open", ' .. cmd .. '])')
+  vim.notify.notify(
+     "Note opened",
+     vim.log.levels.INFO, {
+     title = "Origami",
+     icon = "",
+     animate = true,
+     timeout = 100,
+  })
 end
 
 function M.init_path_map()
