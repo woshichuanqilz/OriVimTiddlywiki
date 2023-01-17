@@ -11,9 +11,10 @@ M.vault_path = '/home/lizhe/OriNote/notes/'
 M.vault_name = 'notes'
 M.fMap = {}
 
-function M.urldecode (str)
-   str = string.gsub (str, "+", " ")
-   str = string.gsub (str, "%%(%x%x)", function(h) return string.char(tonumber(h,16)) end)
+function M.urlencode (str)
+   str = string.gsub (str, "([^0-9a-zA-Z !'()*._~-])", -- locale independent
+      function (c) return string.format ("%%%02X", string.byte(c)) end)
+   str = string.gsub (str, " ", "+")
    return str
 end
 
@@ -22,9 +23,7 @@ function M.preview_in_obsidian()
   if file_path == nil then return end
   local relative_path = file_path:gsub(M.vault_path, '')
   relative_path = relative_path:gsub('.md', '')
-  print('fp: ' .. file_path)
-  print('rp: ' .. relative_path)
-  print('url encode: ' .. M.urldecode(relative_path))
+  print('obsidian://open?vault=' .. M.vault_name .. M.urlencode(relative_path))
 end
 
 function M.init_path_map()
