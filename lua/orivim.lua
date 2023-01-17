@@ -30,6 +30,8 @@ function M.preview_in_obsidian()
   vim.cmd('call jobstart(["i3-msg", "workspace", "2:Note "])')
   os.execute('sleep 0.3')
   vim.cmd('call jobstart(["i3-msg", "workspace", "back_and_forth"])')
+
+  vim.notify = require('notify').notify
   vim.notify(
      "Note opened",
      vim.log.levels.INFO, {
