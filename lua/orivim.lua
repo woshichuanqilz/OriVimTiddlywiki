@@ -30,6 +30,7 @@ function M.preview_in_obsidian()
   -- print(cmd)
   -- os.execute(cmd)
   vim.cmd('call jobstart(["xdg-open", ' .. cmd .. '])')
+  vim.cmd('call jobstart(["xdg-open", ' .. cmd .. '])')
   vim.notify(
      "Note opened",
      vim.log.levels.INFO, {
