@@ -11,6 +11,12 @@ M.vault_path = '/home/lizhe/OriNote/notes/'
 M.vault_name = 'notes'
 M.fMap = {}
 
+function M.urldecode (str)
+   str = string.gsub (str, "+", " ")
+   str = string.gsub (str, "%%(%x%x)", function(h) return string.char(tonumber(h,16)) end)
+   return str
+end
+
 function M.preview_in_obsidian()
   local file_path = vim.api.nvim_exec('echo expand("%:p")', true)
   if file_path == nil then return end
@@ -18,6 +24,7 @@ function M.preview_in_obsidian()
   relative_path = relative_path:gsub('.md', '')
   print('fp: ' .. file_path)
   print('rp: ' .. relative_path)
+  print('url encode: ' .. M.urldecode(relative_path))
 end
 
 function M.init_path_map()
