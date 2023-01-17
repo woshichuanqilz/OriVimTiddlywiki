@@ -9,6 +9,9 @@ local notify = require('notify')
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
 M.fMap = {}
 
+function M.preview_in_obsidian()
+  
+end
 
 function M.init_path_map()
   local file = io.open(M.note_path .. '../note_paths.txt', "r");
