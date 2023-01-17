@@ -15,6 +15,7 @@ function M.preview_in_obsidian()
   local file_path = vim.api.nvim_exec('echo expand("%:p")', true)
   if file_path == nil then return end
   local relative_path = file_path:gsub(M.vault_path, '')
+  relative_path = relative_path:gsub('.md', '')
   print('fp: ' .. file_path)
   print('rp: ' .. relative_path)
 end
@@ -158,6 +159,6 @@ function M.setup()
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})
 end
 
-M.preview_in_obsidian()
+-- M.preview_in_obsidian()
 return M
 
