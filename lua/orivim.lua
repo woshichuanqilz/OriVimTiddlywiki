@@ -26,7 +26,7 @@ function M.preview_in_obsidian()
   local cmd = 'xdg-open "obsidian://open?vault=' .. M.vault_name .. "&file=" .. M.urlencode(relative_path) .. '"&'
   print(cmd)
   -- os.execute(cmd)
-  vim.fn.system(cmd)
+  vim.cmd('call jobstart([])')
 end
 
 function M.init_path_map()
