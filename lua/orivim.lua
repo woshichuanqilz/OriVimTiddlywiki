@@ -30,13 +30,13 @@ function M.preview_in_obsidian()
   -- print(cmd)
   -- os.execute(cmd)
   vim.cmd('call jobstart(["xdg-open", ' .. cmd .. '])')
-  vim.notify.notify(
+  vim.notify(
      "Note opened",
      vim.log.levels.INFO, {
      title = "Origami",
      icon = "",
      animate = true,
-     timeout = 100,
+     timeout = 1000,
   })
 end
 
@@ -160,6 +160,7 @@ function M.keymap_setup(note_path)
 
   vim.cmd('nnoremap <leader>to :only<CR>:Toc<CR>')
   vim.cmd("nnoremap <leader>ta :lua require('orivim.file_name_picker').insert_tag()<CR>")
+  vim.cmd("nnoremap <leader>pv :lua require('orivim').preview_in_obsidian()<CR>")
 end
 
 
