@@ -27,7 +27,7 @@ function M.preview_in_obsidian()
   relative_path = relative_path:gsub('.md', '')
   local cmd = '"obsidian://open?vault=' .. M.vault_name .. "&file=" .. M.urlencode(relative_path) .. '"'
   vim.cmd('call jobstart(["xdg-open", ' .. cmd .. '])')
-  vim.cmd('call jobstart(["i3-msg", "workspace", "i3-msg workspace 2:Note   "])')
+  vim.cmd('call jobstart(["i3-msg", "workspace", "2:Note "])')
   os.execute('sleep 0.3')
   vim.cmd('call jobstart(["i3-msg", "workspace", "back_and_forth"])')
   vim.notify(
