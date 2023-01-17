@@ -7,12 +7,16 @@ local keymap = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 local notify = require('notify')
 M.note_path = '/home/lizhe/OriNote/notes/Ori/'
+M.vault_path = '/home/lizhe/OriNote/notes/'
 M.vault_name = 'notes'
 M.fMap = {}
 
 function M.preview_in_obsidian()
   local file_path = vim.cmd('echo expand("%:p")')
-   file_path:
+  if file_path == nil then return end
+  local relative_path = file_path:gsub(M.vault_path, '')
+  print('fp' .. file_path)
+  print('rp' .. relative_path)
 end
 
 function M.init_path_map()
@@ -154,5 +158,6 @@ function M.setup()
   vim.api.nvim_create_user_command('UpdateTags', 'lua require("orivim.file_name_picker").update_tags()<CR>', {})
 end
 
+M.preview_in_obsidian()
 return M
 
