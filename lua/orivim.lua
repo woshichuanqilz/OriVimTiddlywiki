@@ -23,7 +23,9 @@ function M.preview_in_obsidian()
   if file_path == nil then return end
   local relative_path = file_path:gsub(M.vault_path, '')
   relative_path = relative_path:gsub('.md', '')
-  print('obsidian://open?vault=' .. M.vault_name .. M.urlencode(relative_path))
+  local cmd = 'xdg-open "obsidian://open?vault=' .. M.vault_name .. M.urlencode(relative_path) .. '"'
+  print(cmd)
+  os.execute(cmd)
 end
 
 function M.init_path_map()
