@@ -12,11 +12,11 @@ M.vault_name = 'notes'
 M.fMap = {}
 
 function M.preview_in_obsidian()
-  local file_path = vim.cmd('echo expand("%:p")')
+  local file_path = vim.api.nvim_exec('echo expand("%:p")', true)
   if file_path == nil then return end
   local relative_path = file_path:gsub(M.vault_path, '')
-  print('fp' .. file_path)
-  print('rp' .. relative_path)
+  print('fp: ' .. file_path)
+  print('rp: ' .. relative_path)
 end
 
 function M.init_path_map()
