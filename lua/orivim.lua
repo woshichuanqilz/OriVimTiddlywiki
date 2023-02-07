@@ -111,12 +111,15 @@ function M.open_note_under_cursor()
   -- print(vim.inspect(M.fMap[current_word]))
   if M.fMap[current_word] == nil then
     notify("Not Exist", vim.log.levels.WARN, {
-      title = "Mind",
+      titcheck le = "Mind",
       icon = ""
     })
   else
     local fp = M.note_path .. M.fMap[current_word]
     vim.cmd('vs ' .. fp)
+    local opts = { noremap = true, silent = true }
+    local keymap = vim.api.nvim_buf_set_keymap
+    keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   end
 end
 
