@@ -118,7 +118,7 @@ function M.open_note_under_cursor()
     local fp = M.note_path .. M.fMap[current_word]
     vim.cmd('vs ' .. fp)
     local tmp_bufnr = tonumber(vim.api.nvim_exec('echo bufnr("%")', true))
-    print('bufnr: ' .. vim.inspect(tmp_bufnr))
+    -- print('bufnr: ' .. vim.inspect(tmp_bufnr))
     local opts = { noremap = true, silent = true }
     local buf_keymap = vim.api.nvim_buf_set_keymap
     buf_keymap(tmp_bufnr, "n", "q", "<cmd>bd<CR>", opts)
