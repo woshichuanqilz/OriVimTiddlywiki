@@ -117,9 +117,10 @@ function M.open_note_under_cursor()
   else
     local fp = M.note_path .. M.fMap[current_word]
     vim.cmd('vs ' .. fp)
+    local tmp_bufnr = vim.api.nvim_exec('bufnr("$")', true)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
-    keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    keymap(tmp_bufnr, "n", "q", "<cmd>BufferKill<CR>", opts)
   end
 end
 
