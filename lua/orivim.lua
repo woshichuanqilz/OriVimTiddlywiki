@@ -168,7 +168,6 @@ end
 
 function M.setup()
   M.init_path_map()
-
   -- Create User Command
   vim.api.nvim_create_autocmd("BufEnter", {
     pattern = { "*.md" },
