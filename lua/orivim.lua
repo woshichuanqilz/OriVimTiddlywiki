@@ -151,6 +151,8 @@ function M.set_autoCommand()
 end
 
 function M.keymap_setup(note_path)
+  keymap({'n'}, '<C-l>', 'mz^i- <ESC>`z2l', default_opts)
+  keymap({'v', 'i'}, '<C-l>', '<ESC>mz^i- <ESC>`z2l', default_opts)
   keymap({'n', 'v'}, 'gd', '<cmd>OpenNoteUnderCursor<CR>', default_opts)
   keymap({'n', 'v'}, '<A-q>', '<cmd>execute "normal \\<Plug>Markdown_OpenUrlUnderCursor"<CR>', default_opts)
   keymap({'n', 'v'}, '<A-f>', ":lua require('telescope.builtin').live_grep({cwd='" .. note_path ..  "'})<CR>", default_opts)
