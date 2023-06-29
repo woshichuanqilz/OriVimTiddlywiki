@@ -106,9 +106,9 @@ end
 -- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  -- print(vim.inspect(current_word))
-  -- print(current_word)
-  -- print(vim.inspect(M.fMap[current_word]))
+  print(vim.inspect(current_word))
+  print(current_word)
+  print(vim.inspect(M.fMap[current_word]))
   if M.fMap[current_word] == nil then
     notify("Not Exist", vim.log.levels.WARN, {
       title = "Mind",
@@ -125,6 +125,16 @@ function M.open_note_under_cursor()
   end
 end
 
+-- work done
+function M.SmartTab()
+  local current_line = vim.fn.line('.')
+  local line_content = vim.fn.getline(current_line)
+  print(vim.inspect(line_content))
+  local match = string.match(line_content, '^%s*-')
+  if match ~= nil then
+    vim.api.nvim_command('normal! >>')
+  end
+end
 
 function M.create_note(note_name)
   -- accept input
@@ -159,6 +169,9 @@ function M.keymap_setup(note_path)
   keymap({'n', 'v', 'i'}, '<A-i>', "<cmd>lua require('orivim.file_name_picker').insert_internal_link()<CR>", default_opts)
   keymap({'n'}, 'g\'', "{o```<ESC>mz}i```<ESC>`zA", default_opts)
   keymap({'v'}, 'g\'', "<ESC>`<O```<ESC>mz`>o```<ESC>`zA", default_opts)
+  keymap({'v'}, 'g\'', "<ESC>`<O```<ESC>mz`>o```<ESC>`zA", default_opts)
+  keymap({'n', 'i'}, '<Tab>', '<cmd>lua require("orivim").SmartTab()<CR>')
+
   -- Navigation
   -- It is fucking easy to make a function
   keymap({'n', 'v', 'i'}, ']]', "/^#\\{1,\\} ", default_opts)
