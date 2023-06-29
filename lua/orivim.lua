@@ -106,9 +106,9 @@ end
 -- work done
 function M.open_note_under_cursor()
   local current_word = M.get_current_word()
-  print(vim.inspect(current_word))
-  print(current_word)
-  print(vim.inspect(M.fMap[current_word]))
+  -- print(vim.inspect(current_word))
+  -- print(current_word)
+  -- print(vim.inspect(M.fMap[current_word]))
   if M.fMap[current_word] == nil then
     notify("Not Exist", vim.log.levels.WARN, {
       title = "Mind",
@@ -171,6 +171,7 @@ function M.keymap_setup(note_path)
   keymap({'v'}, 'g\'', "<ESC>`<O```<ESC>mz`>o```<ESC>`zA", default_opts)
   keymap({'v'}, 'g\'', "<ESC>`<O```<ESC>mz`>o```<ESC>`zA", default_opts)
   keymap({'n', 'i'}, '<Tab>', '<cmd>lua require("orivim").SmartTab()<CR>')
+  keymap({'n'}, 'ge', '}b')
 
   -- Navigation
   -- It is fucking easy to make a function
